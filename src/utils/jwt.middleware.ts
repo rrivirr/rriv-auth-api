@@ -1,5 +1,4 @@
 import type { NextFunction, Request, Response } from "express";
-import { z } from "zod";
 import { HttpException } from "./http-exception.ts";
 import { verifyJwtToken } from "../infra/jwt.ts";
 
@@ -18,14 +17,9 @@ export const jwtMiddleware = async (
     throw new HttpException(401, "invalid access token");
   }
 
-  const idSchema = z.object({ id: z.uuid() }).strict();
-  const { success, data } = idSchema.safeParse({ id: decoded.sub });
-
-  if (!success) {
+  if (!["auth-api", "account"].includes(decoded.azp)) {
     throw new HttpException(401, "invalid access token");
   }
 
-  const accountId = data.id;
-  req.accountId = accountId;
   next();
 };
