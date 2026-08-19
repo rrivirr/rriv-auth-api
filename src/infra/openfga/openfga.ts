@@ -1,9 +1,10 @@
 import { OpenFgaClient } from "@openfga/sdk";
+import config from "../get-config.ts";
 
 const openFga = new OpenFgaClient({
-  apiUrl: process.env.OPENFGA_URL!,
-  storeId: process.env.OPENFGA_STORE_ID!,
-  authorizationModelId: process.env.OPENFGA_MODEL_ID!,
+  apiUrl: config.OPENFGA_URL,
+  storeId: config.OPENFGA_STORE_ID,
+  authorizationModelId: config.OPENFGA_MODEL_ID,
 });
 
 export default openFga;
