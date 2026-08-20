@@ -27,11 +27,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the github actions repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: rrivirr/github-actions
           ref: v1.1.0
-          token: ${{ secrets.GH_ACTIONS_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: ./.github/actions/rrivirr-github-actions
       - name: Prepare deployment
         uses: ./.github/actions/rrivirr-github-actions/.github/actions/prepare-deployment.yaml@v1.1.0 # make sure you point at the latest version!

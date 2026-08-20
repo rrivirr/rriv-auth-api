@@ -45,16 +45,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ needs.release.outputs.new-release-git-tag }}
 
       - name: Check out the github actions repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: rrivirr/github-actions
           ref: main
-          token: ${{ secrets.GH_ACTIONS_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: ./.github/actions/rivirr-github-actions
 
       - name: Prepare deployment
