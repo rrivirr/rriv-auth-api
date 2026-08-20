@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.0...v1.0.1) (2026-08-20)
+
+
+### Bug Fixes
+
+* github token ([5e75356](https://github.com/rrivirr/rriv-auth-api/commit/5e753561e36a4c6a07bb3ff5c426c99c1acd68a6))
+
 # 1.0.0 (2026-08-20)
 
 
