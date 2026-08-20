@@ -5,7 +5,7 @@ import {
   writeRelationships,
   read,
   listUsers,
-} from "./handler.ts";
+} from "./handler.js";
 
 const router = express.Router();
 

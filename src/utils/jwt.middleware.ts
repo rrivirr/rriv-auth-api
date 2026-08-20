@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
-import { HttpException } from "./http-exception.ts";
-import { verifyJwtToken } from "../infra/jwt.ts";
+import { HttpException } from "./http-exception.js";
+import { verifyJwtToken } from "../infra/jwt.js";
 
 export const jwtMiddleware = async (
   req: Request,

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { getPublicKey } from "./keycloak/keycloak.ts";
-import config from "./get-config.ts";
+import { getPublicKey } from "./keycloak/keycloak.js";
+import config from "./get-config.js";
 
 export const verifyJwtToken = async (token: string) => {
   const publicKey = await getPublicKey();

@@ -1,5 +1,5 @@
 import { OpenFgaClient } from "@openfga/sdk";
-import config from "../get-config.ts";
+import config from "../get-config.js";
 
 const openFga = new OpenFgaClient({
   apiUrl: config.OPENFGA_URL,

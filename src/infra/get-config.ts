@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { z } from "zod";
-import fs, { existsSync, writeFileSync } from "node:fs";
+import fs, { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { homedir } from "node:os";
 
@@ -35,14 +35,32 @@ const getConfigValues = () => {
     ...(OPENFGA_URL && { OPENFGA_URL }),
   };
 
-  let fileConfig = {};
-  const filePath = `${path.join(homedir(), ".auth-api")}`;
+  const dirPath = path.join(homedir(), ".auth-api");
+  const localDirPath = `${path.join("./config")}`;
+
+  if (!existsSync(dirPath)) {
+    mkdirSync(dirPath);
+  }
+  if (!existsSync(localDirPath)) {
+    mkdirSync(localDirPath);
+  }
+
+  const filePath = `${path.join(dirPath, "config")}`;
+  const localFilePath = `${path.join(localDirPath, "config")}`;
+
   if (!existsSync(filePath)) {
     writeFileSync(filePath, "");
-  } else {
-    const fileBuffer = fs.readFileSync(filePath, "utf8");
-    fileConfig = dotenv.parse(fileBuffer);
   }
+  if (!existsSync(localFilePath)) {
+    writeFileSync(localFilePath, "");
+  }
+
+  const fileBuffer = fs.readFileSync(filePath, "utf8");
+  const localFileBuffer = fs.readFileSync(localFilePath, "utf8");
+  const fileConfig = {
+    ...dotenv.parse(fileBuffer),
+    ...dotenv.parse(localFileBuffer),
+  };
 
   const config = readSchema.parse({ ...fileConfig, ...envConfig });
 

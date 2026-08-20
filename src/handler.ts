@@ -3,14 +3,14 @@ import {
   WriteRequestWritesOnDuplicate,
   WriteRequestDeletesOnMissing,
 } from "@openfga/sdk";
-import openFga from "./infra/openfga/openfga.ts";
+import openFga from "./infra/openfga/openfga.js";
 import {
   tupleSchema,
   writeRelationshipsSchema,
   listObjectsSchema,
   listUsersSchema,
   readSchema,
-} from "./schemas.ts";
+} from "./schemas.js";
 
 export const check: RequestHandler = async (req, res) => {
   const payload = tupleSchema.parse(req.body);

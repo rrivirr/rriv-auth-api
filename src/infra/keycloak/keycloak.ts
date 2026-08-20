@@ -1,6 +1,6 @@
 import axios from "axios";
-import { HttpException } from "../../utils/http-exception.ts";
-import config from "../get-config.ts";
+import { HttpException } from "../../utils/http-exception.js";
+import config from "../get-config.js";
 
 export const getPublicKey = async () => {
   try {

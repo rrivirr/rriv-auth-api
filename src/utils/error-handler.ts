@@ -1,8 +1,8 @@
 import type { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { ZodError } from "zod";
-import logger from "../winston.ts";
-import { HttpException } from "./http-exception.ts";
+import logger from "../winston.js";
+import { HttpException } from "./http-exception.js";
 
 export default (
   err: any,

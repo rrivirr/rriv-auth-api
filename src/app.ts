@@ -1,8 +1,8 @@
 import "dotenv/config";
 import express from "express";
-import errorHandler from "./utils/error-handler.ts";
-import routes from "./routes.ts";
-import { jwtMiddleware } from "./utils/jwt.middleware.ts";
+import errorHandler from "./utils/error-handler.js";
+import routes from "./routes.js";
+import { jwtMiddleware } from "./utils/jwt.middleware.js";
 import packageJson from "../package.json" with { type: "json" };
 
 const app = express();

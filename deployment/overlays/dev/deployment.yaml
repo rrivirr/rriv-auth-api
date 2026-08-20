@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rriv-api
+spec:
+  template:
+    spec:
+      containers:
+        - name: rriv-api
+          env:
+            - name: KEYCLOAK_URL
+              value: https://auth.dev.rriv.org
+            - name: KEYCLOAK_REALM
+              value: rriv-beta-dev
+            - name: OPENFGA_URL
+              value: http://rriv-openfga:8080
+          resources:
+            requests:
+              cpu: 50m
+              memory: 256Mi
+            limits:
+              cpu: 100m
+              memory: 384Mi
