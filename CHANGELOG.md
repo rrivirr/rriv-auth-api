@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.1...v1.0.2) (2026-08-20)
+
+
+### Bug Fixes
+
+* workflow ([1eca7b1](https://github.com/rrivirr/rriv-auth-api/commit/1eca7b1a866e970137ce7be8b98cbfe3a5b8c009))
+
 ## [1.0.1](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.0...v1.0.1) (2026-08-20)
 
 
