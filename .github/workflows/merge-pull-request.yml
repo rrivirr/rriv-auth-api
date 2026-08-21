@@ -54,7 +54,7 @@ jobs:
         with:
           repository: rrivirr/github-actions
           ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_ACTIONS_ACCESS_TOKEN }}
           path: ./.github/actions/rivirr-github-actions
 
       - name: Prepare deployment
