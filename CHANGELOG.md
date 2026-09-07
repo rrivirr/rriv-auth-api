@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.7...v1.0.8) (2026-09-07)
+
+
+### Bug Fixes
+
+* reduce resource request ([b084e10](https://github.com/rrivirr/rriv-auth-api/commit/b084e10f1a134832ddc7b697528b4ef494d8d599))
+
 ## [1.0.7](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.6...v1.0.7) (2026-09-07)
 
 
