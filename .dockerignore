@@ -25,7 +25,7 @@ dist
 .releaserc
 commitlint.config.cjs
 eslint.config.mjs
-tsconfig.json
+
 
 # Documentation and miscellaneous files
 README*
