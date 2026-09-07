@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.6...v1.0.7) (2026-09-07)
+
+
+### Bug Fixes
+
+* dockerignore ([6e0791c](https://github.com/rrivirr/rriv-auth-api/commit/6e0791c7fff261729508dbb15d38ee5b766087ec))
+
 ## [1.0.6](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.5...v1.0.6) (2026-09-07)
 
 
