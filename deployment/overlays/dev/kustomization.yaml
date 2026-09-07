@@ -5,5 +5,5 @@ resources:
 patches:
   - path: deployment.yaml
 images:
-  - name: registry.digitalocean.com/rriv/rriv-api
+  - name: registry.digitalocean.com/rriv/auth-api
     newTag: 1.12.0

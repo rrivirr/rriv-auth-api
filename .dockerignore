@@ -1,4 +1,5 @@
 node_modules
+deployment
 
 # Build output
 dist
@@ -11,6 +12,7 @@ dist
 .git
 .gitignore
 .gitattributes
+.github
 
 
 # Tests and local tooling
@@ -19,6 +21,11 @@ dist
 .idea
 .DS_Store
 *.swp
+.husky
+.releaserc
+commitlint.config.cjs
+eslint.config.mjs
+tsconfig.json
 
 # Documentation and miscellaneous files
 README*

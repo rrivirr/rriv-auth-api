@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rriv-api
+  name: auth-api
 spec:
   template:
     spec:
       containers:
-        - name: rriv-api
+        - name: auth-api
           env:
             - name: KEYCLOAK_URL
               value: https://auth.dev.rriv.org
