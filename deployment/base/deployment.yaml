@@ -34,7 +34,7 @@ spec:
         - name: registry-rriv
       containers:
         - name: auth-api
-          command: ["dist/index.js"]
+          args: ["dist/server.js"]
           image: registry.digitalocean.com/rriv/auth-api:1.0.5
           ports:
             - containerPort: 3006

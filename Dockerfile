@@ -1,4 +1,4 @@
-ARG BUILD_IMAGE=node:22-bookworm-slim
+ARG BUILD_IMAGE=node:24-bookworm-slim
 
 # Build stage — compiles TypeScript
 FROM $BUILD_IMAGE AS build
@@ -15,7 +15,8 @@ COPY package*.json ./
 RUN npm ci --omit=dev --ignore-scripts
 
 # Runtime — distroless, non-root, only the compiled output
-FROM gcr.io/distroless/nodejs22-debian13:nonroot
+FROM gcr.io/distroless/nodejs24-debian13:nonroot
+ENV NODE_ENV=production
 WORKDIR /app
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist

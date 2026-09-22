@@ -7,6 +7,7 @@ dist
 # Environment and secrets
 .env
 .env.example
+config
 
 # Version control
 .git
