@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.10...v1.0.11) (2026-09-23)
+
+
+### Bug Fixes
+
+* update allowed azp ([5434ef1](https://github.com/rrivirr/rriv-auth-api/commit/5434ef1205da375b5e61a3172b3e3f5b26424d66))
+
 ## [1.0.10](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.9...v1.0.10) (2026-09-23)
 
 
