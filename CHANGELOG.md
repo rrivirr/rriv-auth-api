@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.9...v1.0.10) (2026-09-23)
+
+
+### Bug Fixes
+
+* trigger deployment ([20339a2](https://github.com/rrivirr/rriv-auth-api/commit/20339a20c3623fa65fd95fbd45f91f8cd74597e7))
+
 ## [1.0.9](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.8...v1.0.9) (2026-09-22)
 
 
