@@ -17,7 +17,7 @@ export const jwtMiddleware = async (
     throw new HttpException(401, "invalid access token");
   }
 
-  if (!["auth-api", "account"].includes(decoded.azp)) {
+  if (!["auth-api", "rrivctl"].includes(decoded.azp)) {
     throw new HttpException(401, "invalid access token");
   }
 
