@@ -14,6 +14,7 @@ const readSchema = z.strictObject({
   OPENFGA_URL: z.url(),
   OPENFGA_STORE_ID: z.string(),
   OPENFGA_MODEL_ID: z.string(),
+  OPENFGA_TOKEN: z.string(),
 });
 
 const getConfigValues = () => {
@@ -24,6 +25,7 @@ const getConfigValues = () => {
   const OPENFGA_URL = process.env.OPENFGA_URL;
   const OPENFGA_STORE_ID = process.env.OPENFGA_STORE_ID;
   const OPENFGA_MODEL_ID = process.env.OPENFGA_MODEL_ID;
+  const OPENFGA_TOKEN = process.env.OPENFGA_TOKEN;
 
   const envConfig = {
     ...(KEYCLOAK_REALM && { KEYCLOAK_REALM }),
@@ -33,6 +35,7 @@ const getConfigValues = () => {
     ...(OPENFGA_MODEL_ID && { OPENFGA_MODEL_ID }),
     ...(OPENFGA_STORE_ID && { OPENFGA_STORE_ID }),
     ...(OPENFGA_URL && { OPENFGA_URL }),
+    ...(OPENFGA_TOKEN && { OPENFGA_TOKEN }),
   };
 
   const dirPath = path.join(homedir(), ".auth-api");

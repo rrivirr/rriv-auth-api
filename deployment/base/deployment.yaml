@@ -27,6 +27,7 @@ spec:
           {{ with secret "secret/data/auth-api-creds" }}
           OPENFGA_STORE_ID="{{ .Data.data.openfga_store_id }}"
           OPENFGA_MODEL_ID="{{ .Data.data.openfga_model_id }}"
+          OPENFGA_TOKEN="{{ .Data.data.openfga_token }}"
           {{ end }}
     spec:
       serviceAccountName: internal-app
