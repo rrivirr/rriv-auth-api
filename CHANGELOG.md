@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.11...v1.0.12) (2026-09-27)
+
+
+### Bug Fixes
+
+* support openfga token ([b1a18ea](https://github.com/rrivirr/rriv-auth-api/commit/b1a18ea47f68b6130c0874494b66712c5d5204be))
+
 ## [1.0.11](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.10...v1.0.11) (2026-09-23)
 
 
