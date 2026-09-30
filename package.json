@@ -1,6 +1,6 @@
 {
   "name": "auth-api",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "type": "module",
   "scripts": {
     "test": "vitest run",

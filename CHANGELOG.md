@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.12...v1.0.13) (2026-09-30)
+
+
+### Bug Fixes
+
+* add readResource endpoint ([e4a22e7](https://github.com/rrivirr/rriv-auth-api/commit/e4a22e73472d6b389790fcd90c4744220a5fae75))
+
 ## [1.0.12](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.11...v1.0.12) (2026-09-27)
 
 
