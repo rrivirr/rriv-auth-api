@@ -4,6 +4,7 @@ import {
   listObjects,
   writeRelationships,
   read,
+  readResource,
   listUsers,
 } from "./handler.js";
 
@@ -14,5 +15,6 @@ router.route("/relationship").post(writeRelationships);
 router.route("/list-objects").post(listObjects);
 router.route("/list-users").post(listUsers);
 router.route("/read").post(read);
+router.route("/read-resource").post(readResource);
 
 export default router;

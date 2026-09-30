@@ -10,6 +10,7 @@ import {
   listObjectsSchema,
   listUsersSchema,
   readSchema,
+  readResourceSchema,
 } from "./schemas.js";
 
 export const check: RequestHandler = async (req, res) => {
@@ -53,4 +54,28 @@ export const read: RequestHandler = async (req, res) => {
   const payload = readSchema.parse(req.body);
   const result = await openFga.read({ ...payload });
   res.json({ tuples: result.tuples });
+};
+
+export const readResource: RequestHandler = async (req, res) => {
+  const { type, id } = readResourceSchema.parse(req.body);
+  const key = `${type}:${id}`;
+
+  const [asUser, asObject] = await Promise.all([
+    openFga.read({ user: key }),
+    openFga.read({ object: key }),
+  ]);
+
+  const tuples = new Map<
+    string,
+    { user: string; relation: string; object: string }
+  >();
+  for (const { key: tuple } of [...asUser.tuples, ...asObject.tuples]) {
+    tuples.set(`${tuple.user}|${tuple.relation}|${tuple.object}`, {
+      user: tuple.user,
+      relation: tuple.relation,
+      object: tuple.object,
+    });
+  }
+
+  res.json({ tuples: [...tuples.values()] });
 };

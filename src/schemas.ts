@@ -29,3 +29,8 @@ export const readSchema = z.strictObject({
   object: z.string().exactOptional(),
   relation: z.string().exactOptional(),
 });
+
+export const readResourceSchema = z.strictObject({
+  type: z.string(),
+  id: z.string(),
+});
