@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.13...v1.0.14) (2026-09-30)
+
+
+### Bug Fixes
+
+* read resource ([90a184d](https://github.com/rrivirr/rriv-auth-api/commit/90a184d96aa7e7ed598dc54ce2791976fc146659))
+
 ## [1.0.13](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.12...v1.0.13) (2026-09-30)
 
 
