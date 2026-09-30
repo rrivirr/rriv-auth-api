@@ -134,13 +134,21 @@ describe("handlers", () => {
     const owner = {
       key: { user: "user:u1", relation: "owner", object: "context:c1" },
     };
-    mocks.read.mockImplementation(
-      async (query: { user?: string }) =>
-        query.user ? { tuples: [binding] } : { tuples: [owner, binding] },
+    mocks.read.mockImplementation(async (query: { user?: string }) =>
+      query.user ? { tuples: [binding] } : { tuples: [owner, binding] },
     );
     const res = makeRes();
 
     await invoke(readResource, { type: "context", id: "c1" }, res);
+
+    expect(mocks.read).toHaveBeenCalledWith({
+      user: "context:c1",
+      object: "device:",
+    });
+    expect(mocks.read).toHaveBeenCalledWith({ object: "context:c1" });
+    for (const call of mocks.read.mock.calls) {
+      expect(call[0]).toHaveProperty("object");
+    }
 
     const payload = res.json.mock.calls[0]![0] as { tuples: unknown[] };
     expect(payload.tuples).toHaveLength(2);
@@ -154,5 +162,19 @@ describe("handlers", () => {
       relation: "context",
       object: "device:d1",
     });
+  });
+
+  it("readResource references an account as user:<id>", async () => {
+    mocks.read.mockResolvedValue({ tuples: [] });
+    const res = makeRes();
+
+    await invoke(readResource, { type: "account", id: contextId }, res);
+
+    expect(mocks.read).toHaveBeenCalledWith({
+      user: `user:${contextId}`,
+      object: "device:",
+    });
+    expect(mocks.read).toHaveBeenCalledWith({ object: `user:${contextId}` });
+    expect(res.json).toHaveBeenCalledWith({ tuples: [] });
   });
 });

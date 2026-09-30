@@ -91,4 +91,33 @@ describe("app", () => {
       await server.close();
     }
   });
+
+  it("read-resource reads OpenFGA with an object type on every query", async () => {
+    mocks.read.mockClear();
+    mocks.read.mockResolvedValue({ tuples: [] });
+    const token = await keycloak.issueToken({ azp: "auth-api", sub: "s1" });
+    const server = await listen();
+    try {
+      const response = await fetch(`${server.url}/read-resource`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ type: "context", id: "c1" }),
+      });
+      expect(response.status).toBe(200);
+      expect(await response.json()).toEqual({ tuples: [] });
+
+      expect(mocks.read).toHaveBeenCalledWith({
+        user: "context:c1",
+        object: "device:",
+      });
+      for (const call of mocks.read.mock.calls) {
+        expect(call[0]).toHaveProperty("object");
+      }
+    } finally {
+      await server.close();
+    }
+  });
 });

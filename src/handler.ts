@@ -58,10 +58,10 @@ export const read: RequestHandler = async (req, res) => {
 
 export const readResource: RequestHandler = async (req, res) => {
   const { type, id } = readResourceSchema.parse(req.body);
-  const key = `${type}:${id}`;
+  const key = `${type === "account" ? "user" : type}:${id}`;
 
   const [asUser, asObject] = await Promise.all([
-    openFga.read({ user: key }),
+    openFga.read({ user: key, object: "device:" }),
     openFga.read({ object: key }),
   ]);
 
