@@ -1,4 +1,3 @@
-import jwt from "jsonwebtoken";
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 import errorHandler from "../../src/utils/error-handler.js";
@@ -53,10 +52,19 @@ describe("errorHandler", () => {
     );
   });
 
-  it("maps JsonWebTokenError to 401", () => {
-    const res = invoke(new jwt.JsonWebTokenError("bad token"));
-    expect(res.statusCode).toBe(401);
-    expect(res.body).toEqual({ code: 401, message: "invalid access token" });
+  it("passes token errors from the verifier through as 401 / 503", () => {
+    const invalid = invoke(new HttpException(401, "invalid access token"));
+    expect(invalid.statusCode).toBe(401);
+    expect(invalid.body).toEqual({ code: 401, message: "invalid access token" });
+
+    const unavailable = invoke(
+      new HttpException(503, "authentication service unavailable"),
+    );
+    expect(unavailable.statusCode).toBe(503);
+    expect(unavailable.body).toEqual({
+      code: 503,
+      message: "authentication service unavailable",
+    });
   });
 
   it("maps unknown errors to 500", () => {

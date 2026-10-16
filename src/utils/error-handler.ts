@@ -1,5 +1,4 @@
 import type { NextFunction, Request, Response } from "express";
-import jwt from "jsonwebtoken";
 import { ZodError } from "zod";
 import logger from "../winston.js";
 import { HttpException } from "./http-exception.js";
@@ -30,17 +29,6 @@ export default (
       message: err.issues.map(
         ({ path, message }) => `field: ${path}, error: ${message}`,
       ),
-    });
-  } else if (
-    err instanceof jwt.JsonWebTokenError ||
-    err instanceof jwt.NotBeforeError ||
-    err instanceof jwt.TokenExpiredError
-  ) {
-    errorLogger.warn(err);
-
-    res.status(401).send({
-      code: 401,
-      message: "invalid access token",
     });
   } else {
     errorLogger.error(err);

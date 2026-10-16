@@ -13,11 +13,11 @@ export const jwtMiddleware = async (
   }
   const jwtToken = authorization.replace("Bearer ", "");
   const decoded = await verifyJwtToken(jwtToken);
-  if (typeof decoded === "string") {
-    throw new HttpException(401, "invalid access token");
-  }
 
-  if (!["auth-api", "rrivctl", "rriv-web"].includes(decoded.azp)) {
+  if (
+    typeof decoded.azp !== "string" ||
+    !["auth-api", "rrivctl", "rriv-web"].includes(decoded.azp)
+  ) {
     throw new HttpException(401, "invalid access token");
   }
 

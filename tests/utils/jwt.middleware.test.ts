@@ -38,6 +38,13 @@ describe("jwtMiddleware", () => {
     await expect(run(`Bearer ${token}`)).rejects.toMatchObject({ code: 401 });
   });
 
+  it("rejects a missing or non-string azp with 401", async () => {
+    for (const claims of [{ sub: "u1" }, { sub: "u1", azp: 123 }]) {
+      const token = await keycloak.issueToken(claims);
+      await expect(run(`Bearer ${token}`)).rejects.toMatchObject({ code: 401 });
+    }
+  });
+
   it("rejects a missing token with 401", async () => {
     await expect(run()).rejects.toMatchObject({ code: 401 });
   });
