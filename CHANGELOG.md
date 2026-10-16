@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.14...v1.0.15) (2026-10-16)
+
+
+### Bug Fixes
+
+* move to using jose for token validation ([fe67413](https://github.com/rrivirr/rriv-auth-api/commit/fe674130b69cdf8e7910d375b6af19b017cbcba6))
+
 ## [1.0.14](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.13...v1.0.14) (2026-09-30)
 
 
