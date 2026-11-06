@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.15...v1.0.16) (2026-11-06)
+
+
+### Bug Fixes
+
+* update vault role ([23a95f2](https://github.com/rrivirr/rriv-auth-api/commit/23a95f2a373c32e1160291d11d699b3c383550ae))
+
 ## [1.0.15](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.14...v1.0.15) (2026-10-16)
 
 
