@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.16...v1.0.17) (2026-11-09)
+
+
+### Bug Fixes
+
+* consolidate token audience ([227f4d5](https://github.com/rrivirr/rriv-auth-api/commit/227f4d5c3370b5580e4cd42b6acc5e0463d5b890))
+
 ## [1.0.16](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.15...v1.0.16) (2026-11-06)
 
 
