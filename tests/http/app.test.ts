@@ -74,7 +74,7 @@ describe("app", () => {
 
   it("serves an authorized request", async () => {
     mocks.check.mockResolvedValue({ allowed: true });
-    const token = await keycloak.issueToken({ azp: "rriv-web", sub: "u1" });
+    const token = await keycloak.issueToken({ azp: "auth-api", sub: "s1" });
     const server = await listen();
     try {
       const response = await fetch(`${server.url}/check`, {
@@ -87,6 +87,27 @@ describe("app", () => {
       });
       expect(response.status).toBe(200);
       expect(await response.json()).toEqual({ allowed: true });
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("refuses a relationship write with an end-user token", async () => {
+    const token = await keycloak.issueToken({ azp: "rriv-web", sub: "u1" });
+    const server = await listen();
+    try {
+      const response = await fetch(`${server.url}/relationship`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          writes: [{ user: "user:u1", relation: "admin", object: "system:rriv" }],
+          deletes: [],
+        }),
+      });
+      expect(response.status).toBe(401);
     } finally {
       await server.close();
     }

@@ -25,11 +25,16 @@ const run = async (authorization?: string) => {
 };
 
 describe("jwtMiddleware", () => {
-  it("accepts every allowed azp", async () => {
-    for (const azp of ["auth-api", "rrivctl", "rriv-web"]) {
+  it("accepts rriv-api's service client", async () => {
+    const token = await keycloak.issueToken({ azp: "auth-api", sub: "s1" });
+    const next = await run(`Bearer ${token}`);
+    expect(next).toHaveBeenCalledOnce();
+  });
+
+  it("rejects end-user clients with 401", async () => {
+    for (const azp of ["rriv-web", "rrivctl"]) {
       const token = await keycloak.issueToken({ azp, sub: "u1" });
-      const next = await run(`Bearer ${token}`);
-      expect(next).toHaveBeenCalledOnce();
+      await expect(run(`Bearer ${token}`)).rejects.toMatchObject({ code: 401 });
     }
   });
 

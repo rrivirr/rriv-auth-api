@@ -14,10 +14,7 @@ export const jwtMiddleware = async (
   const jwtToken = authorization.replace("Bearer ", "");
   const decoded = await verifyJwtToken(jwtToken);
 
-  if (
-    typeof decoded.azp !== "string" ||
-    !["auth-api", "rrivctl", "rriv-web"].includes(decoded.azp)
-  ) {
+  if (decoded.azp !== "auth-api") {
     throw new HttpException(401, "invalid access token");
   }
 
