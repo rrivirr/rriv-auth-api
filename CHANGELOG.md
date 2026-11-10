@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.17...v1.0.18) (2026-11-10)
+
+
+### Bug Fixes
+
+* remove sidecar ([47dd013](https://github.com/rrivirr/rriv-auth-api/commit/47dd0130b014a893575015c7280c3531fc6bdf4d))
+
 ## [1.0.17](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.16...v1.0.17) (2026-11-09)
 
 
