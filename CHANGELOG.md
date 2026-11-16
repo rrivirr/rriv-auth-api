@@ -1,3 +1,9 @@
+## [1.0.19](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.18...v1.0.19) (2026-11-16)
+
+### Bug Fixes
+
+* deployment fixes ([b5c3026](https://github.com/rrivirr/rriv-auth-api/commit/b5c302667f92b5045a2aa7a226d8e949e37b33d6))
+
 ## [1.0.18](https://github.com/rrivirr/rriv-auth-api/compare/v1.0.17...v1.0.18) (2026-11-10)
 
 
