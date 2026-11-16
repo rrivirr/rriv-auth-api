@@ -40,6 +40,9 @@ spec:
           image: registry.digitalocean.com/rriv/auth-api:1.0.5
           ports:
             - containerPort: 3006
+          env:
+            - name: OPENFGA_URL
+              value: http://rriv-openfga:8080
           resources:
             requests:
               cpu: 50m
